@@ -22,7 +22,12 @@
     // Some stricter flags
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noPropertyAccessFromIndexSignature": true
+    "noPropertyAccessFromIndexSignature": true,
+
+    // path aliases
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   }
 }
 
