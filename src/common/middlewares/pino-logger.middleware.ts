@@ -20,15 +20,17 @@ const transport = pino.transport({
   ],
 });
 
+export const customLogger = pino(
+  {
+    level: env.LOG_LEVEL || "info",
+    timestamp: pino.stdTimeFunctions.isoTime,
+  },
+  transport,
+);
+
 export function pinoLogger() {
   return logger({
-    pino: pino(
-      {
-        level: env.LOG_LEVEL || "info",
-        timestamp: pino.stdTimeFunctions.isoTime,
-      },
-      transport,
-    ),
+    pino: customLogger,
     http: {
       reqId: () => crypto.randomUUID(),
     },

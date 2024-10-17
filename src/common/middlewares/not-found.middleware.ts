@@ -1,6 +1,6 @@
 import type { NotFoundHandler } from "hono";
 
-import { NOT_FOUND_CODE } from "../utils/http-status-codes.util";
+import { NOT_FOUND } from "../utils/http-status-codes.util";
 
 export const notFoundMiddleware: NotFoundHandler = (c) => {
   return c.json(
@@ -8,6 +8,6 @@ export const notFoundMiddleware: NotFoundHandler = (c) => {
       success: false,
       message: `Route not found - ${c.req.path}`,
     },
-    NOT_FOUND_CODE,
+    NOT_FOUND,
   );
 };
