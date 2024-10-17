@@ -13,6 +13,7 @@ const EnvSchema = z.object({
     "silent",
   ]),
   API_TITLE: z.string().default("HONO OPEN API"),
+  DATABASE_URL: z.string().url(),
 });
 
 export type env = z.infer<typeof EnvSchema>;
