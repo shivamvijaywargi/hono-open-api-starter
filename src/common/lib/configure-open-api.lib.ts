@@ -18,8 +18,13 @@ export function configureOpenAPI(app: AppOpenAPI) {
   app.get(
     "/reference",
     apiReference({
+      theme: "kepler",
       spec: {
         url: "/doc",
+      },
+      defaultHttpClient: {
+        targetKey: "javascript",
+        clientKey: "fetch",
       },
     }),
   );

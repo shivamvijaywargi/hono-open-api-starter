@@ -8,10 +8,12 @@ import {
   pinoLogger,
   serveEmojiFavicon,
 } from "../middlewares";
+import { defaultHook } from "../utils/default-hook.util";
 
 export function createRouter() {
   return new OpenAPIHono<AppBindings>({
     strict: false,
+    defaultHook,
   });
 }
 

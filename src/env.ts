@@ -12,7 +12,7 @@ const EnvSchema = z.object({
     "trace",
     "silent",
   ]),
-  API_TITLE: z.string().default("HONO_OPEN_API"),
+  API_TITLE: z.string().default("HONO OPEN API"),
 });
 
 export type env = z.infer<typeof EnvSchema>;

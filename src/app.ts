@@ -1,10 +1,10 @@
 import { configureOpenAPI } from "./common/lib/configure-open-api.lib";
 import { createApp } from "./common/lib/create-app.lib";
-import { exampleRouter } from "./modules/example/example.route";
+import { healthCheckRouter } from "./modules/health-check/health-check.index";
 
 export const app = createApp();
 
-const routes = [exampleRouter];
+const routes = [healthCheckRouter];
 
 configureOpenAPI(app);
 
