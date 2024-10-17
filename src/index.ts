@@ -1,6 +1,7 @@
 import { app } from "./app";
+import env from "./env";
 
-const port = Number.parseInt(process.env?.PORT, 10) || 8998;
+const port = env.PORT || 8998;
 
 export default {
   port,

@@ -1,27 +1,10 @@
-import type { PinoLogger } from "hono-pino";
+import { configureOpenAPI } from "./common/lib/configure-open-api.lib";
+import { createApp } from "./common/lib/create-app.lib";
 
-import { OpenAPIHono } from "@hono/zod-openapi";
+export const app = createApp();
 
-import { notFoundMiddleware } from "./common/middlewares/not-found.middleware";
-import { onErrorMiddleware } from "./common/middlewares/on-error.middleware";
-import { pinoLogger } from "./common/middlewares/pino-logger.middleware";
-
-interface AppBindings {
-  Variables: {
-    logger: PinoLogger;
-  };
-}
-
-export const app = new OpenAPIHono<AppBindings>();
-
-app.use(pinoLogger());
+configureOpenAPI(app);
 
 app.get("/", (c) => {
-  c.var.logger.info("WOOOOOOW");
-  c.var.logger.debug("WOOOOOOW");
   return c.text("Hello Hono!");
 });
-
-// global middlewares
-app.notFound(notFoundMiddleware);
-app.onError(onErrorMiddleware);

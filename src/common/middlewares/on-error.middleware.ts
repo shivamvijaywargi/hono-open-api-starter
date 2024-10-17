@@ -14,7 +14,8 @@ export const onErrorMiddleware: ErrorHandler = (err, c) => {
       ? (currentStatus as StatusCode)
       : INTERNAL_SERVER_ERROR_CODE;
 
-  const env = c.env?.NODE_ENV || process.env?.NODE_ENV;
+  // eslint-disable-next-line node/no-process-env
+  const env = c.env?.NODE_ENV || process.env?.NODE_ENV || "production";
 
   return c.json(
     {
