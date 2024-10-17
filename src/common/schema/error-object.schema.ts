@@ -7,7 +7,7 @@ export const ErrorCode = z.nativeEnum(HTTP_STATUS);
 export const ErrorSchema = z.object({
   error: z.object({
     success: z.boolean(),
-    code: z.any(),
+    code: z.number(),
     docs: z.string(),
     message: z.string(),
     requestId: z.string(),
