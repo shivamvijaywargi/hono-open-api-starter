@@ -1,3 +1,5 @@
+import { apiReference } from "@scalar/hono-api-reference";
+
 import env from "@/env";
 
 import type { AppOpenAPI } from "./types";
@@ -12,4 +14,13 @@ export function configureOpenAPI(app: AppOpenAPI) {
       title: env.API_TITLE,
     },
   });
+
+  app.get(
+    "/reference",
+    apiReference({
+      spec: {
+        url: "/doc",
+      },
+    }),
+  );
 }
