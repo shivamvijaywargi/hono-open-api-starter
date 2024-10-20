@@ -10,6 +10,6 @@ export const healthCheck: AppRouteHandler<HealthCheckRoute> = (c) => {
       success: true,
       message: "Hello Hono!",
     },
-    HTTPStatusCodes.OK_CODE,
+    HTTPStatusCodes.OK,
   );
 };

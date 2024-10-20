@@ -9,7 +9,7 @@ export const healthCheck = createRoute({
   method: "get",
   path: "/health-check",
   responses: {
-    [HTTPStatusCodes.OK_CODE]: jsonContent(
+    [HTTPStatusCodes.OK]: jsonContent(
       createMessageObjectSchema("Hello Hono!"),
       "Health Check API",
     ),
